@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --background-color: #1b1b32;
+    --container-background: #28293e;
+    --text-color: #ffffff;
+    --input-background: #333345;
+    --highlight-color: #6200ea;
+    --hover-highlight: #3700b3;
+    --error-color: #dc3545;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.todo-container {
+    max-width: 500px;
+    margin: 60px auto; /* Center horizontally with margin-top */
+    padding: 30px;
+    background: var(--container-background);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem; /* Default font size */
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+#todo-input {
+    flex: 1; /* Input takes up available space */
+    padding: 12px;
+    border: 1px solid var(--input-background);
+    border-radius: 5px;
+    background: var(--input-background);
+    color: var(--text-color);
+}
+
+#todo-input:focus {
+    border-color: var(--highlight-color);
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background: var(--highlight-color);
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin: 7px; /* Margin to space out buttons */
+}
+
+button:hover {
+    background: var(--hover-highlight);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--input-background);
+    border-radius: 5px;
+    border: 1px solid var(--input-background);
+    transition: all 0.3s;
+    margin: 10px 0;
+}
+
+li:hover {
+    background: var(--hover-highlight);
+}
+
+.edit-button,
+.delete-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.edit-button:hover {
+    color: var(--highlight-color);
+}
+
+.delete-button:hover {
+    color: var(--error-color);
+}
+
+li input {
+    display: none; /* Hidden by default */
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+    padding: 10px;
+    background: var(--input-background);
+    color: var(--text-color);
+}
+
+li.editing input {
+    display: block; /* Shown in editing mode */
+}
+
+li.editing span {
+    display: none; /* Hide text when editing */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    /* Smaller screens like mobile devices */
+    .todo-container {
+        padding: 20px;
+        margin: 30px auto; /* Reduced top margin */
+        max-width: 90%; /* Full-width with some margin */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
+
+    form {
+        flex-direction: column; /* Stack input and button */
+    }
+
+    button {
+        width: 100%; /* Full width for buttons on smaller screens */
+        padding: 10px; /* Adjust padding */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    /* Tablets and small laptops */
+    .todo-container {
+        padding: 25px;
+        margin: 40px auto; /* Moderate top margin */
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    form {
+        flex-direction: row; /* Input and button side-by-side */
+    }
+
+    button {
+        width: auto; /* Buttons with default width */
+    }
+}
+
+@media (max-width: 600px) {
+    .todo-container {
+        max-width: 80%; /* Adjust to fit smaller screens */
+        padding: 20px; /* Less padding */
+        margin: 10px auto; /* Center and reduce top margin */
+    }
+
+    form {
+        flex-direction: column; /* Stack input and button */
+        gap: 15px; /* Space out form elements */
+    }
+
+    button {
+        width: 20%; /* Full width for easier tapping */
+    }
+
+    #todo-input{
+        width: 75%;
+    }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 600px) and (max-width: 900px) {
+    .todo-container {
+        max-width: 600px; /* Slightly larger width for tablets */
+        padding: 25px;
+    }
+
+    form {
+        flex-direction: row; /* Horizontal layout */
+        gap: 10px; /* Smaller gap */
+    }
+
+    button {
+        width: 20%; /* Natural button width */
+    }
+}
+
