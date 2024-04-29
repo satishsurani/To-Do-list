@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loadTasks = () => {
         const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        tasks.foreach((task) => {
+        tasks.forEach((task) => {
             addTaskToDOM(task.text);
         });
     };
 
     const saveTasks = () => {
         const tasks = [];
-        document.querySelectorAll("#todo-list li").foreach((li) => {
+        document.querySelectorAll("#todo-list li").forEach((li) => {
             const span = li.querySelector(".task-content span").textContent;
             tasks.push({ text: span });
         });
@@ -53,28 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         todoList.appendChild(li);
 
-        // Event listeners for edit and delete
         editButton.addEventListener("click", () => {
             if (li.classList.contains("editing")) {
                 saveEdit(li);
             } else {
                 li.classList.add("editing");
-                li.querySelector("input").focus();  /* Focus on the input field */
+                li.querySelector("input").focus(); 
             }
         });
 
         deleteButton.addEventListener("click", () => {
-            todoList.removeChild(li);  /* Remove task */
-            saveTasks();  /* Update local storage */
+            todoList.removeChild(li);  
+            saveTasks();  
         });
 
         input.addEventListener("keypress", (e) => {
             if (e.key === "Enter") {
-                saveEdit(li);  /* Save the new task text */
+                saveEdit(li); 
             }
         });
 
-        saveTasks();  /* Save tasks to local storage */
+        saveTasks();  
     };
 
     const saveEdit = (li) => {
@@ -83,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const newText = input.value.trim();
         if (newText !== "") {
-            span.textContent = newText;  /* Update task text */
-            li.classList.remove("editing");  /* Exit edit mode */
-            saveTasks();  /* Save tasks */
+            span.textContent = newText; 
+            li.classList.remove("editing");  
+            saveTasks();
         }
     };
 
@@ -93,11 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const taskText = todoInput.value.trim();
         if (taskText !== "") {
-            addTaskToDOM(taskText);  /* Add a new task */
-            todoInput.value = "";  /* Clear the input field */
-            saveTasks();  /* Save tasks */
+            addTaskToDOM(taskText);  
+            todoInput.value = ""; 
+            saveTasks(); 
         }
     });
 
-    loadTasks();  /* Load existing tasks from local storage */
+    loadTasks(); 
 });
