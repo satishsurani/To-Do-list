@@ -123,49 +123,6 @@ li.editing span {
 }
 
 @media (max-width: 600px) {
-   
-    .todo-container {
-        padding: 20px;
-        margin: 30px auto;
-        max-width: 90%; 
-    }
-
-    h1 {
-        font-size: 1.5rem; 
-    }
-
-    form {
-        flex-direction: column;
-    }
-
-    button {
-        width: 100%; 
-        padding: 10px; 
-    }
-}
-
-@media (min-width: 600px) and (max-width: 900px) {
-   
-    .todo-container {
-        padding: 25px;
-        margin: 40px auto; 
-        max-width: 600px;
-    }
-
-    h1 {
-        font-size: 1.8rem; 
-    }
-
-    form {
-        flex-direction: row;
-    }
-
-    button {
-        width: auto;
-    }
-}
-
-@media (max-width: 600px) {
     .todo-container {
         max-width: 80%;
         padding: 20px; 
